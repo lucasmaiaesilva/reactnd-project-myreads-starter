@@ -19,6 +19,10 @@ class BookTable extends Component {
     })
   })
 
+  handleChange = () => {
+    console.log('it works!')
+  }
+
   render () {
     const { bookList } = this.state
     return (
@@ -28,7 +32,7 @@ class BookTable extends Component {
         </div>
         <div className="list-books-content">
           <If test={bookList.length > 0}>
-            <BookShelves books={bookList} />
+            <BookShelves books={bookList} handleChange={this.handleChange} />
           </If>
         </div>
         <div className="open-search">

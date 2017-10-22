@@ -22,7 +22,7 @@ class BookShelves extends PureComponent {
   )
 
   render () {
-    const { books } = this.props
+    const { books, handleChange } = this.props
     return (
       <div>
         {
@@ -32,6 +32,7 @@ class BookShelves extends PureComponent {
                 key={`${shelf}${index}`}
                 books={this.filterByShelf(books, shelf)}
                 shelf={shelf}
+                handleChange={handleChange}
               />
             )
           )
