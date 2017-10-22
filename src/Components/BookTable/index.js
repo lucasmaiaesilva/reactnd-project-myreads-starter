@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import BookShelfs from '../BookShelfs'
+import BookShelves from '../BookShelves'
 import If from '../If'
 import * as BooksAPI from '../../BooksAPI'
 
@@ -28,7 +28,7 @@ class BookTable extends Component {
         </div>
         <div className="list-books-content">
           <If test={bookList.length > 0}>
-            <BookShelfs books={bookList} />
+            <BookShelves books={bookList} />
           </If>
         </div>
         <div className="open-search">

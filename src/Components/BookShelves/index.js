@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import BookShelfRow from '../BookShelfRow'
 
-class BookShelfs extends PureComponent {
+class BookShelves extends PureComponent {
 
-  getShelfs = (books) => (
+  getShelves = (books) => (
     books.reduce((acc, cur) => {
       if(acc === undefined) {
         acc.push(cur.shelf)
@@ -26,7 +26,7 @@ class BookShelfs extends PureComponent {
     return (
       <div>
         {
-          this.getShelfs(books)
+          this.getShelves(books)
             .map((shelf, index) => (
               <BookShelfRow
                 key={`${shelf}${index}`}
@@ -41,4 +41,4 @@ class BookShelfs extends PureComponent {
   }
 }
 
-export default BookShelfs
+export default BookShelves
