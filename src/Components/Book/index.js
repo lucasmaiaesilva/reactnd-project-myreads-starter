@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 class Book extends PureComponent {
   render () {
     const { title, id, authors, imageLinks, shelf } = this.props.data
-    console.log(title, id, authors, imageLinks, shelf)
     // const { handleChange } = this.props
 
     return (
