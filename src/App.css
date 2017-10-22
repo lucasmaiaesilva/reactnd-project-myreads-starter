@@ -103,6 +103,16 @@ body, .app {
   padding: 80px 10px 20px;
 }
 
+.search-box-message {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.search-message {
+  margin: auto;
+}
+
 /* books grid */
 
 .books-grid {

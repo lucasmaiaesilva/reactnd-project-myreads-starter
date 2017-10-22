@@ -19,8 +19,29 @@ class BookTable extends Component {
     })
   })
 
-  handleChange = () => {
-    console.log('it works!')
+  handleChange = (e, book) => {
+    const { value } = e.target
+    const { bookList } = this.state
+    BooksAPI.update(book, value).then(res => this.updateBooks(value, book))
+  }
+
+  updateBooks = (value, book) => {
+    const id = book.id
+    const { bookList } = this.state
+    let changedBook = bookList.filter(book => book.id === id)
+    let newObj
+    if (changedBook.length > 0) {
+      changedBook[0].shelf = value
+      const unChangedBooks = bookList.filter(book => book.id !== id)
+      newObj = unChangedBooks.concat(changedBook)
+    } else {
+      newObj = bookList.push(book)
+      window.alert('book added!!')
+    }
+    this.setState({
+      bookList: newObj
+    })        
+
   }
 
   render () {
@@ -38,6 +59,7 @@ class BookTable extends Component {
         <div className="open-search">
           <Link to={{
             pathname: '/search',
+            handleChange: this.handleChange,
             state: { bookList }
           }}>
             Add a book

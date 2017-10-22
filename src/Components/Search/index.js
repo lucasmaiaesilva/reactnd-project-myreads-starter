@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
+import If from '../If'
 import BookShelfRow from '../BookShelfRow'
 import { search } from '../../BooksAPI'
 
@@ -25,6 +26,8 @@ class Search extends PureComponent {
 
   render () {
     const { books } = this.state
+    const { handleChange } = this.props.location
+    console.log(books.length)
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -39,7 +42,16 @@ class Search extends PureComponent {
           </div>
         </div>
 
-        <BookShelfRow shelf={false} books={books} />
+        <If test={books.length > 0}>
+          <BookShelfRow shelf={false} books={books} handleChange={handleChange} />
+        </If>
+        <If test={books.length === undefined}>
+          <div className="search-box-message">
+            <h1 className="search-message">
+              No result for this search
+            </h1>
+          </div>
+        </If>
       </div>  
     )
   }

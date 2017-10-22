@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 class Book extends PureComponent {
   render () {
-    const { title, id, authors, imageLinks, shelf } = this.props.data
+    const { title, authors, imageLinks, shelf } = this.props.data
     const { handleChange } = this.props
-
+    const book = this.props.data
     return (
       <li>
         <div className="book">
@@ -13,7 +13,7 @@ class Book extends PureComponent {
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks.smallThumbnail})` }}></div>
 
             <div className="book-shelf-changer">
-              <select defaultValue={shelf} onChange={(e) => handleChange(e, id)}>
+              <select defaultValue={shelf} onChange={(e) => handleChange(e, book)}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
