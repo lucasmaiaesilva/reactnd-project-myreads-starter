@@ -21,7 +21,6 @@ class BookTable extends Component {
 
   handleChange = (e, book) => {
     const { value } = e.target
-    const { bookList } = this.state
     BooksAPI.update(book, value).then(res => this.updateBooks(value, book))
   }
 
