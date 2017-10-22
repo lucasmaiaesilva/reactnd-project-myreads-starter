@@ -3,22 +3,22 @@ import Book from '../Book'
 
 class BookShelfRow extends PureComponent {
 
-  isSearch = (shelf) => !shelf
-
   renderBooks = (shelf, books) => {
-    if (this.isSearch(shelf)) {
-      <div className="bookshelf">
-        <h2 className="bookshelf-title">{shelf}</h2>
-        <div className="bookshelf-books">
-          <ol className="books-grid">
-            {
-              books.map(book => (
-                <Book key={book.id} data={book} />
-              ))
-            }
-          </ol>
+    if (shelf) {
+      return (
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">{shelf}</h2>
+          <div className="bookshelf-books">
+            <ol className="books-grid">
+              {
+                books.map(book => (
+                  <Book key={book.id} data={book} />
+                ))
+              }
+            </ol>
+          </div>
         </div>
-      </div>
+      )
     }
     return (
       <div className="search-books-results">
@@ -33,7 +33,7 @@ class BookShelfRow extends PureComponent {
     )
   }
 
-  render () {
+  render () {    
     const { shelf, books } = this.props
     return this.renderBooks(shelf, books)
   }
