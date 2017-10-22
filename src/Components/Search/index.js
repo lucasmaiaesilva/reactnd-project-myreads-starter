@@ -25,7 +25,6 @@ class Search extends PureComponent {
 
   render () {
     const { books } = this.state
-    console.log(books)
     return (
       <div className="search-books">
         <div className="search-books-bar">
