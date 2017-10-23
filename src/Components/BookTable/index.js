@@ -5,8 +5,11 @@ import If from '../If'
 import * as BooksAPI from '../../BooksAPI'
 
 class BookTable extends Component {
-  state = {
-    bookList: {}
+  constructor(props) {
+    super(props)
+    this.state = {
+      bookList: {}
+    }  
   }
   
   componentDidMount = () => {
